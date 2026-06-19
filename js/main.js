@@ -152,6 +152,32 @@
     }
   });
 
+  // ── MOBILE MENU TOGGLE ────────────────────
+  var menuToggle = document.getElementById('menuToggle');
+  var navLinks = document.querySelector('.nav-links');
+
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener('click', function () {
+      menuToggle.classList.toggle('active');
+      navLinks.classList.toggle('open');
+      // Lock body scroll when menu is open
+      if (navLinks.classList.contains('open')) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+      }
+    });
+
+    // Close menu when a link is clicked
+    navLinks.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        menuToggle.classList.remove('active');
+        navLinks.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
+  }
+
   // ── PARALLAX HERO CONTENT ─────────────────
   window.addEventListener('scroll', function () {
     var scroll = window.scrollY;
