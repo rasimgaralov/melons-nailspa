@@ -1,0 +1,5 @@
+node_modules/
+.DS_Store
+ffmpeg.zip
+*.zip
+assets/background/desktop/introDesktop_original.mp4
