@@ -301,6 +301,40 @@ document.addEventListener('DOMContentLoaded', function () {
     if (e.key === 'Escape') closeBookingModal();
   });
 
+  // ── SPECIALIST DATA PER SERVICE ─────────────
+  var specialists = {
+    'Gel Manicure': ['Amira K.', 'Leyla M.', 'Nadia R.'],
+    'Nail Art': ['Farida S.', 'Zahra H.', 'Maryam A.'],
+    'Acrylic Extensions': ['Amira K.', 'Farida S.', 'Hana T.'],
+    'Hair & Styling': ['Rania B.', 'Sara J.', 'Dina F.'],
+    'Facials': ['Noura W.', 'Layla D.', 'Yasmin E.'],
+    'Asian Spa': ['Mei L.', 'Yuki T.', 'Suki K.'],
+    'Other': []
+  };
+
+  var serviceSelect = document.getElementById('bookService');
+  var specialistRow = document.getElementById('specialistRow');
+  var specialistSelect = document.getElementById('bookSpecialist');
+
+  if (serviceSelect && specialistRow && specialistSelect) {
+    serviceSelect.addEventListener('change', function () {
+      var selected = this.value;
+      var list = specialists[selected] || [];
+      specialistSelect.innerHTML = '<option value="" selected>No preference</option>';
+      if (list.length > 0) {
+        list.forEach(function (name) {
+          var opt = document.createElement('option');
+          opt.value = name;
+          opt.textContent = name;
+          specialistSelect.appendChild(opt);
+        });
+        specialistRow.style.display = '';
+      } else {
+        specialistRow.style.display = 'none';
+      }
+    });
+  }
+
   // Form submission
   var form = document.getElementById('bookingForm');
   if (form) {
@@ -311,6 +345,7 @@ document.addEventListener('DOMContentLoaded', function () {
       var phone = document.getElementById('bookPhone').value.trim();
       var branch = document.getElementById('bookBranch').value;
       var service = document.getElementById('bookService').value;
+      var specialist = document.getElementById('bookSpecialist') ? document.getElementById('bookSpecialist').value : '';
       var date = document.getElementById('bookDate').value;
       var time = document.getElementById('bookTime').value;
       var notes = document.getElementById('bookNotes').value.trim();
@@ -340,6 +375,9 @@ document.addEventListener('DOMContentLoaded', function () {
       message += '📞 *Phone:* ' + phone + '\n';
       message += '📍 *Branch:* ' + branchName + '\n';
       message += '💅 *Service:* ' + service + '\n';
+      if (specialist) {
+        message += '👩‍🎨 *Specialist:* ' + specialist + '\n';
+      }
       message += '📅 *Date:* ' + formattedDate + '\n';
       message += '🕐 *Time:* ' + time + '\n';
       if (notes) {
@@ -353,6 +391,7 @@ document.addEventListener('DOMContentLoaded', function () {
       // Close modal and reset form
       closeBookingModal();
       form.reset();
+      if (specialistRow) specialistRow.style.display = 'none';
     });
   }
 });
