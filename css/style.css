@@ -1720,9 +1720,10 @@ footer {
   }
 
   .nav-links-cta a:hover {
-    background: var(--text) !important;
-    color: #fff !important;
-    padding-left: 0 !important;
+    background: #fff !important;
+    color: var(--accent) !important;
+    padding-left: 36px !important;
+    box-shadow: 0 6px 28px rgba(122, 54, 64, 0.3);
     transform: translateY(-2px);
   }
 
