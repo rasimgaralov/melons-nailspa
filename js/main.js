@@ -3,6 +3,12 @@
    Main JavaScript — Loader, Hero & Animations
    ============================================ */
 
+// Always start from top on page load / refresh
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
+window.scrollTo(0, 0);
+
 (function () {
   'use strict';
 
