@@ -66,6 +66,7 @@ img {
   align-items: center;
   justify-content: center;
   height: 100vh;
+  height: 100svh;
   height: var(--vh, 100vh);
   transition: opacity 1s ease, visibility 1s ease;
 }
@@ -259,7 +260,7 @@ img {
 /* ── HERO ──────────────────────────────────── */
 #hero {
   height: 100vh;
-  height: 100dvh;
+  height: 100svh;
   height: var(--vh, 100vh);
   position: relative;
   overflow: hidden;
@@ -1710,7 +1711,7 @@ footer {
     width: 320px;
     max-width: 85%;
     height: 100vh;
-    height: 100dvh;
+    height: 100svh;
     bottom: 0;
     z-index: 200;
     background: rgba(254, 245, 246, 0.98);

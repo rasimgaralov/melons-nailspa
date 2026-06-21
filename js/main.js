@@ -9,12 +9,11 @@ if ('scrollRestoration' in history) {
 }
 window.scrollTo(0, 0);
 
-// Fix mobile viewport height (prevents jump from browser chrome)
-function setVH() {
+// Fix mobile viewport height — set ONCE to prevent layout thrashing
+// when mobile browser chrome hides/shows on scroll
+(function setVH() {
   document.documentElement.style.setProperty('--vh', window.innerHeight + 'px');
-}
-setVH();
-window.addEventListener('resize', setVH);
+})();
 
 (function () {
   'use strict';
