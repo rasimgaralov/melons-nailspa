@@ -36,6 +36,10 @@ body {
   font-family: var(--font);
   font-weight: 200;
   overflow-x: hidden;
+}
+
+html {
+  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -275,6 +279,9 @@ img {
   z-index: 0;
   opacity: 0;
   transition: opacity 0.5s ease;
+  will-change: opacity;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 #heroCanvas.visible {
