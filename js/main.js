@@ -155,26 +155,42 @@
   // ── MOBILE MENU TOGGLE ────────────────────
   var menuToggle = document.getElementById('menuToggle');
   var navLinks = document.querySelector('.nav-links');
+  var navOverlay = document.getElementById('navOverlay');
 
   if (menuToggle && navLinks) {
-    menuToggle.addEventListener('click', function () {
+    function toggleMenu() {
       menuToggle.classList.toggle('active');
       navLinks.classList.toggle('open');
+      if (navOverlay) {
+        navOverlay.classList.toggle('active');
+      }
+      
       // Lock body scroll when menu is open
       if (navLinks.classList.contains('open')) {
         document.body.style.overflow = 'hidden';
       } else {
         document.body.style.overflow = '';
       }
-    });
+    }
+
+    function closeMenu() {
+      menuToggle.classList.remove('active');
+      navLinks.classList.remove('open');
+      if (navOverlay) {
+        navOverlay.classList.remove('active');
+      }
+      document.body.style.overflow = '';
+    }
+
+    menuToggle.addEventListener('click', toggleMenu);
+
+    if (navOverlay) {
+      navOverlay.addEventListener('click', closeMenu);
+    }
 
     // Close menu when a link is clicked
     navLinks.querySelectorAll('a').forEach(function (link) {
-      link.addEventListener('click', function () {
-        menuToggle.classList.remove('active');
-        navLinks.classList.remove('open');
-        document.body.style.overflow = '';
-      });
+      link.addEventListener('click', closeMenu);
     });
   }
 
@@ -274,9 +290,13 @@ function openBookingModal(branch) {
     // Close mobile menu if open
     var menuToggle = document.getElementById('menuToggle');
     var navLinks = document.querySelector('.nav-links');
+    var navOverlay = document.getElementById('navOverlay');
     if (menuToggle && navLinks) {
       menuToggle.classList.remove('active');
       navLinks.classList.remove('open');
+      if (navOverlay) {
+        navOverlay.classList.remove('active');
+      }
     }
   }
 }

@@ -219,6 +219,10 @@ img {
   display: none;
 }
 
+.nav-overlay {
+  display: none;
+}
+
 /* ── HERO ──────────────────────────────────── */
 #hero {
   height: 100vh;
@@ -1597,64 +1601,96 @@ footer {
     transform: translateY(-7px) rotate(-45deg);
   }
 
-  /* Mobile nav overlay */
+  /* Mobile nav overlay / backdrop */
+  .nav-overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(28, 19, 21, 0.45);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 199;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+  }
+
+  .nav-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* Mobile end drawer sidebar */
   .nav-links {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 12px;
     position: fixed;
     top: 0;
-    left: 0;
     right: 0;
+    width: 320px;
+    max-width: 85%;
+    height: 100vh;
     bottom: 0;
     z-index: 200;
-    background: rgba(244, 194, 197, 0.97);
-    backdrop-filter: blur(30px);
-    -webkit-backdrop-filter: blur(30px);
-    opacity: 0;
+    background: rgba(254, 245, 246, 0.98); /* brand soft melon pink-white */
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border-left: 1px solid rgba(122, 54, 64, 0.08);
+    box-shadow: -10px 0 40px rgba(122, 54, 64, 0.12);
+    padding: 120px 40px 40px;
+    list-style: none;
+    
+    transform: translateX(100%);
     visibility: hidden;
-    transform: translateY(-20px);
-    transition: all 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    opacity: 1;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                visibility 0.4s ease;
   }
 
   .nav-links.open {
-    opacity: 1;
+    transform: translateX(0);
     visibility: visible;
-    transform: translateY(0);
   }
 
   .nav-links li {
+    width: 100%;
     opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.4s ease;
+    transform: translateX(30px);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .nav-links.open li {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
   }
 
   .nav-links.open li:nth-child(1) { transition-delay: 0.1s; }
-  .nav-links.open li:nth-child(2) { transition-delay: 0.18s; }
-  .nav-links.open li:nth-child(3) { transition-delay: 0.26s; }
-  .nav-links.open li:nth-child(4) { transition-delay: 0.34s; }
+  .nav-links.open li:nth-child(2) { transition-delay: 0.16s; }
+  .nav-links.open li:nth-child(3) { transition-delay: 0.22s; }
+  .nav-links.open li:nth-child(4) { transition-delay: 0.28s; }
+  .nav-links.open li:nth-child(5) { transition-delay: 0.34s; }
 
   .nav-links a {
-    font-size: 22px;
-    font-weight: 300;
-    letter-spacing: 0.25em;
-    padding: 20px 40px;
+    display: block;
+    width: 100%;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    padding: 12px 0;
     border-radius: 0;
     border: none;
     color: var(--text);
+    text-decoration: none;
+    transition: color 0.3s ease, padding-left 0.3s ease;
   }
 
   .nav-links a:hover {
     color: var(--accent);
-    background: rgba(122, 54, 64, 0.08);
-    border-color: transparent;
+    padding-left: 8px;
+    background: transparent;
   }
 
   /* Hide standalone CTA on mobile */
@@ -1665,27 +1701,30 @@ footer {
   /* Show Book Now inside mobile menu */
   .nav-links-cta {
     display: list-item;
-    margin-top: 16px;
+    margin-top: 24px;
+    width: 100%;
   }
 
   .nav-links-cta a {
+    display: inline-block;
+    width: auto;
     background: var(--accent) !important;
     color: #fff !important;
     border-radius: 50px !important;
-    padding: 16px 48px !important;
+    padding: 14px 36px !important;
     font-weight: 400 !important;
-    font-size: 14px !important;
-    letter-spacing: 0.25em;
-    box-shadow: 0 4px 20px rgba(122, 54, 64, 0.3);
+    font-size: 13px !important;
+    letter-spacing: 0.2em;
+    box-shadow: 0 4px 20px rgba(122, 54, 64, 0.2);
     transition: all 0.4s ease;
   }
 
   .nav-links-cta a:hover {
-    background: #fff !important;
-    color: var(--accent) !important;
+    background: var(--text) !important;
+    color: #fff !important;
+    padding-left: 0 !important;
+    transform: translateY(-2px);
   }
-
-  .nav-links.open li:nth-child(5) { transition-delay: 0.42s; }
 
   .hero-info-left {
     top: 120px;
