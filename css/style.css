@@ -221,8 +221,34 @@ img {
   display: none;
 }
 
+/* Language toggle — hidden on desktop */
+.nav-links-lang {
+  display: none;
+}
+
 .nav-overlay {
   display: none;
+}
+
+/* Desktop language toggle */
+.lang-toggle-desktop {
+  font-family: var(--font);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  border: 1.5px solid rgba(122, 54, 64, 0.3);
+  padding: 8px 18px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  margin-left: 12px;
+}
+
+.lang-toggle-desktop:hover {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
 }
 
 /* ── HERO ──────────────────────────────────── */
@@ -1672,11 +1698,13 @@ footer {
     transform: translateX(0);
   }
 
-  .nav-links.open li:nth-child(1) { transition-delay: 0.1s; }
-  .nav-links.open li:nth-child(2) { transition-delay: 0.16s; }
-  .nav-links.open li:nth-child(3) { transition-delay: 0.22s; }
-  .nav-links.open li:nth-child(4) { transition-delay: 0.28s; }
-  .nav-links.open li:nth-child(5) { transition-delay: 0.34s; }
+  .nav-links.open li:nth-child(1) { opacity: 1; transform: translateX(0); transition-delay: 0s; }
+  .nav-links.open li:nth-child(2) { transition-delay: 0.1s; }
+  .nav-links.open li:nth-child(3) { transition-delay: 0.16s; }
+  .nav-links.open li:nth-child(4) { transition-delay: 0.22s; }
+  .nav-links.open li:nth-child(5) { transition-delay: 0.28s; }
+  .nav-links.open li:nth-child(6) { transition-delay: 0.34s; }
+  .nav-links.open li:nth-child(7) { transition-delay: 0.4s; }
 
   .nav-links a {
     display: block;
@@ -1698,9 +1726,35 @@ footer {
     background: transparent;
   }
 
-  /* Hide standalone CTA on mobile */
-  .nav-cta {
+  /* Hide standalone CTA and desktop lang toggle on mobile */
+  .nav-cta,
+  .lang-toggle-desktop {
     display: none;
+  }
+
+  /* Show lang toggle inside drawer */
+  .nav-links-lang {
+    display: list-item;
+    position: absolute;
+    top: 40px;
+    left: 40px;
+  }
+
+  .nav-links-lang a {
+    font-size: 12px !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.15em !important;
+    padding: 8px 20px !important;
+    border: 1.5px solid rgba(122, 54, 64, 0.3) !important;
+    border-radius: 50px !important;
+    color: var(--accent) !important;
+    transition: all 0.3s ease !important;
+  }
+
+  .nav-links-lang a:hover {
+    background: var(--accent) !important;
+    color: #fff !important;
+    padding-left: 20px !important;
   }
 
   /* Show Book Now inside mobile menu */
@@ -1921,5 +1975,72 @@ footer {
 
   .booking-modal-title {
     font-size: 22px;
+  }
+}
+
+/* ── RTL OVERRIDES ─────────────────────────── */
+[dir="rtl"] {
+  direction: rtl;
+  text-align: right;
+}
+
+[dir="rtl"] .hero-info-right {
+  text-align: left;
+}
+
+[dir="rtl"] .about-feature::before {
+  margin-left: 0;
+}
+
+[dir="rtl"] .service-book {
+  direction: rtl;
+}
+
+[dir="rtl"] .footer-bottom {
+  direction: rtl;
+}
+
+[dir="rtl"] .lang-toggle-desktop {
+  margin-left: 0;
+  margin-right: 12px;
+}
+
+@media (max-width: 1024px) {
+  [dir="rtl"] .nav-links {
+    right: auto;
+    left: 0;
+    border-left: none;
+    border-right: 1px solid rgba(122, 54, 64, 0.08);
+    box-shadow: 10px 0 40px rgba(122, 54, 64, 0.12);
+    transform: translateX(-100%);
+    align-items: flex-end;
+    text-align: right;
+  }
+
+  [dir="rtl"] .nav-links.open {
+    transform: translateX(0);
+  }
+
+  [dir="rtl"] .nav-links li {
+    transform: translateX(-30px);
+  }
+
+  [dir="rtl"] .nav-links.open li {
+    transform: translateX(0);
+  }
+
+  [dir="rtl"] .nav-links-lang {
+    left: auto;
+    right: 40px;
+  }
+
+  [dir="rtl"] .nav-links a:hover {
+    padding-left: 0;
+    padding-right: 8px;
+  }
+
+  [dir="rtl"] .booking-modal-close {
+    right: auto;
+    left: 22px;
   }
 }

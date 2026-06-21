@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ميلونز — أظافر، شعر وعناية بالبشرة | مسقط، عُمان</title>
+  <meta name="description"
+    content="ميلونز نيلز سبا — خدمات فن الأظافر، تصفيف الشعر، العناية بالبشرة والسبا في مسقط، عُمان. فرعين: الموالح وشارع الوزارات. احجز عبر واتساب.">
+
+  <!-- Google Fonts: Jost -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- ── LOADER ──────────────────────────────── -->
+  <div id="loader">
+    <video id="loaderVideo" autoplay muted playsinline></video>
+    <button id="skipBtn" class="loader-skip">تخطي ✦</button>
+  </div>
+
+  <!-- ── NAVBAR ──────────────────────────────── -->
+  <div id="navOverlay" class="nav-overlay"></div>
+  <nav id="navbar" class="navbar">
+    <div class="nav-logo">
+      <a href="#">
+        <img src="assets/logo_transparent.png" alt="Melons Nails Spa">
+      </a>
+    </div>
+    <button id="menuToggle" class="menu-toggle" aria-label="Menu">
+      <span class="menu-bar"></span>
+      <span class="menu-bar"></span>
+      <span class="menu-bar"></span>
+    </button>
+    <ul class="nav-links">
+      <li class="nav-links-lang"><a href="index.html" class="lang-toggle">English</a></li>
+      <li><a href="#about">من نحن</a></li>
+      <li><a href="#services">خدماتنا</a></li>
+      <li><a href="#gallery">معرض</a></li>
+      <li><a href="#reviews">آراء العملاء</a></li>
+      <li class="nav-links-cta"><a href="#" onclick="openBookingModal(); return false;">احجز الآن</a></li>
+    </ul>
+    <a href="#" onclick="openBookingModal(); return false;" class="nav-cta">احجز الآن</a>
+    <a href="index.html" class="lang-toggle-desktop">English</a>
+  </nav>
+
+  <!-- ── HERO ────────────────────────────────── -->
+  <section id="hero">
+    <canvas id="heroCanvas"></canvas>
+    <div class="hero-gradient"></div>
+
+    <!-- Top-left: Brand info -->
+    <div class="hero-info-left">
+      <div class="hero-overline">أظافر · شعر · عناية بالبشرة</div>
+      <div class="hero-brand-name">ميلونز نيلز سبا و المزيد</div>
+      <p class="hero-tagline">لأنكِ واحدة من مليون ✨<br>حيث يلتقي الجمال بالفخامة في قلب مسقط.</p>
+      <div class="hero-est">®️ تأسست عام 2024 · 32.9K متابع</div>
+      <div class="hero-est">+10K عميلة</div>
+    </div>
+
+    <!-- Bottom-right: Location & CTA -->
+    <div class="hero-info-right">
+      <div class="hero-location">مسقط، عُمان</div>
+      <div class="hero-branches">الموالح · شارع الوزارات (الراية)<br>فرعين مميزين</div>
+      <div class="hero-hours">مفتوح يومياً · 10:00 ص – 8:00 م</div>
+      <a href="#" onclick="openBookingModal(); return false;" class="hero-book">
+        احجز عبر واتساب
+        <span class="hero-book-arrow">←</span>
+      </a>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="hero-scroll">
+      <div class="hero-scroll-line"></div>
+      <span class="hero-scroll-text">انزل</span>
+    </div>
+  </section>
+
+  <!-- ── MARQUEE ──────────────────────────────── -->
+  <div class="marquee-section">
+    <div class="marquee-track">
+      <div class="marquee-item"><span>✦</span> مانيكير جل</div>
+      <div class="marquee-item"><span>✦</span> فن الأظافر</div>
+      <div class="marquee-item"><span>✦</span> تركيبات أكريليك</div>
+      <div class="marquee-item"><span>✦</span> قص وتصفيف الشعر</div>
+      <div class="marquee-item"><span>✦</span> عناية بالبشرة</div>
+      <div class="marquee-item"><span>✦</span> باديكير</div>
+      <div class="marquee-item"><span>✦</span> سبا آسيوي</div>
+      <div class="marquee-item"><span>✦</span> علاجات الشعر</div>
+      <!-- repeat for seamless loop -->
+      <div class="marquee-item"><span>✦</span> مانيكير جل</div>
+      <div class="marquee-item"><span>✦</span> فن الأظافر</div>
+      <div class="marquee-item"><span>✦</span> تركيبات أكريليك</div>
+      <div class="marquee-item"><span>✦</span> قص وتصفيف الشعر</div>
+      <div class="marquee-item"><span>✦</span> عناية بالبشرة</div>
+      <div class="marquee-item"><span>✦</span> باديكير</div>
+      <div class="marquee-item"><span>✦</span> سبا آسيوي</div>
+      <div class="marquee-item"><span>✦</span> علاجات الشعر</div>
+    </div>
+  </div>
+
+  <!-- ── ABOUT ────────────────────────────────── -->
+  <section id="about">
+    <div class="about-visual reveal">
+      <div class="about-img-frame">
+        <img src="assets/357748838_17932621997714647_6611173913682088999_n.jpg" alt="Melons Nails Spa Interior">
+      </div>
+      <div class="about-img-accent">
+        <div class="about-stat-num">32.9K</div>
+        <div class="about-stat-label">Instagram<br>Followers</div>
+      </div>
+    </div>
+    <div class="about-text">
+      <div class="about-text-top reveal">®️ علامة تجارية مسجلة · مسقط، عُمان</div>
+      <h2 class="about-heading reveal reveal-delay-1">حيث يلتقي الجمال<br>بـ<em>الفخامة</em></h2>
+      <p class="about-body reveal reveal-delay-2">
+        في ميلونز، نقدم مجموعة متكاملة من خدمات الجمال — الأظافر، الشعر، والعناية بالبشرة — عبر فرعينا المميزين في مسقط. لأنكِ واحدة من مليون ✨
+      </p>
+      <p class="about-body reveal reveal-delay-3">
+        من فن الأظافر المعقد إلى جلسات العناية بالبشرة المنعشة وتسريحات الشعر المميزة، فريقنا الموهوب ملتزم بجعلكِ تبدين وتشعرين بالتميز. مفتوح كل يوم لراحتكِ.
+      </p>
+      <div class="about-divider reveal"></div>
+      <div class="about-features reveal">
+        <div class="about-feature">أظافر وتركيبات</div>
+        <div class="about-feature">شعر وتصفيف</div>
+        <div class="about-feature">عناية بالبشرة وسبا</div>
+      </div>
+      <div class="about-stats reveal">
+        <div class="about-stat-item">
+          <span class="about-stat-value">2024</span>
+          <span class="about-stat-desc">تأسيس</span>
+        </div>
+        <div class="about-stat-item">
+          <span class="about-stat-value">+10K</span>
+          <span class="about-stat-desc">عميلة</span>
+        </div>
+        <div class="about-stat-item">
+          <span class="about-stat-value">2</span>
+          <span class="about-stat-desc">فروع</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SERVICES ─────────────────────────────── -->
+  <section id="services">
+    <div class="section-header reveal">
+      <div class="section-overline">ماذا نقدم</div>
+      <h2 class="section-title"><em>خدماتنا</em></h2>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-img">
+          <img src="assets/service_gel_manicure.png" alt="Gel Manicure Service">
+          <div class="service-num">01</div>
+        </div>
+        <div class="service-content">
+          <div class="service-name">مانيكير جل</div>
+          <div class="service-desc">لون جل يدوم طويلاً بلمسة زجاجية. يبقي أظافرك مثالية لأسابيع — متوفر بمئات الألوان.</div>
+          <a href="#" onclick="openBookingModal(); return false;" class="service-book">احجزي الآن ←</a>
+        </div>
+      </div>
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-img">
+          <img src="assets/background/background_items/Watermelon nail art with a juicy bite (1).png" alt="Nail Art Service">
+          <div class="service-num">02</div>
+        </div>
+        <div class="service-content">
+          <div class="service-name">فن الأظافر</div>
+          <div class="service-desc">تصاميم مرسومة يدوياً، زخارف ثلاثية الأبعاد، وفن أظافر مخصص. فناناتنا يحولن رؤيتك إلى واقع.</div>
+          <a href="#" onclick="openBookingModal(); return false;" class="service-book">احجزي الآن ←</a>
+        </div>
+      </div>
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-img">
+          <img src="assets/service_acrylic_extensions.png" alt="Acrylic Extensions Service">
+          <div class="service-num">03</div>
+        </div>
+        <div class="service-content">
+          <div class="service-name">تركيبات أكريليك</div>
+          <div class="service-desc">تركيبات عادية وأكريليك منحوتة بالطول والشكل المطلوب. متينة، طبيعية المظهر، وبلمسة نهائية مثالية.</div>
+          <a href="#" onclick="openBookingModal(); return false;" class="service-book">احجزي الآن ←</a>
+        </div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-img">
+          <img src="assets/service_hair_styling.png" alt="Hair & Styling Service">
+          <div class="service-num">04</div>
+        </div>
+        <div class="service-content">
+          <div class="service-name">شعر وتصفيف</div>
+          <div class="service-desc">قص شعر، سشوار، وتصفيف للمناسبات الخاصة. من الإطلالات اليومية إلى تسريحات المواسم.</div>
+          <a href="#" onclick="openBookingModal(); return false;" class="service-book">احجزي الآن ←</a>
+        </div>
+      </div>
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-img">
+          <img src="assets/service_facials.png" alt="Facials Service">
+          <div class="service-num">05</div>
+        </div>
+        <div class="service-content">
+          <div class="service-name">عناية بالبشرة</div>
+          <div class="service-desc">جلسات عناية بالبشرة منعشة مصممة حسب نوع بشرتك. علاجات تمنحك التوهج بأيدي فريقنا المحترف.</div>
+          <a href="#" onclick="openBookingModal(); return false;" class="service-book">احجزي الآن ←</a>
+        </div>
+      </div>
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-img">
+          <img src="assets/service_asian_spa.png" alt="Asian Spa Service">
+          <div class="service-num">06</div>
+        </div>
+        <div class="service-content">
+          <div class="service-name">سبا آسيوي</div>
+          <div class="service-desc">استمتعي بعلاجات السبا الآسيوية ومساجات الاسترخاء. تجربة حسية كاملة لتجديد عقلك وجسمك.</div>
+          <a href="#" onclick="openBookingModal(); return false;" class="service-book">احجزي الآن ←</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── GALLERY ──────────────────────────────── -->
+  <section id="gallery">
+    <div class="section-header reveal">
+      <div class="section-overline">أعمالنا</div>
+      <h2 class="section-title"><em>معرض الصور</em></h2>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item reveal">
+        <img src="assets/gallery_1.png" alt="Gel Nail Art">
+        <div class="gallery-label">فن أظافر جل</div>
+      </div>
+      <div class="gallery-item reveal reveal-delay-1">
+        <img src="assets/salon_interior.png" alt="داخل الصالون">
+        <div class="gallery-label">صالوننا</div>
+      </div>
+      <div class="gallery-item reveal reveal-delay-2">
+        <img src="assets/gallery_2.png" alt="لمسة كروم">
+        <div class="gallery-label">لمسة كروم</div>
+      </div>
+      <div class="gallery-item reveal">
+        <img src="assets/gallery_3.png" alt="أكريليك">
+        <div class="gallery-label">تركيبات أكريليك</div>
+      </div>
+      <div class="gallery-item reveal reveal-delay-1">
+        <img src="assets/gallery_4.png" alt="تصميم أظافر">
+        <div class="gallery-label">تصميم مميز</div>
+      </div>
+      <div class="gallery-item reveal reveal-delay-2">
+        <img src="assets/gallery_1.png" alt="فرنش">
+        <div class="gallery-label">فرنش تيبس</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── REVIEWS ──────────────────────────────── -->
+  <section id="reviews">
+    <div class="section-header reveal">
+      <div class="section-overline">قصص العملاء</div>
+      <h2 class="section-title">ماذا <em>يقولون</em></h2>
+    </div>
+    <div class="testimonials-wrap reveal">
+      <div class="testimonial-item active">
+        <div class="testimonial-stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <p class="testimonial-quote">فن الأظافر في ميلونز على مستوى مختلف تماماً. كل تفصيل مثالي والفريق محترف جداً. وجهتي المفضلة في مسقط!</p>
+        <div class="testimonial-author">— عميلة فرع الموالح</div>
+      </div>
+      <div class="testimonial-item">
+        <div class="testimonial-stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <p class="testimonial-quote">قصيت شعري وعملت جلسة عناية بالبشرة هنا — كلاهما كانا رائعين. فريق شارع الوزارات موهوب ومرحب. سأستمر بالمجيء!</p>
+        <div class="testimonial-author">— عميلة فرع شارع الوزارات</div>
+      </div>
+      <div class="testimonial-item">
+        <div class="testimonial-stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <p class="testimonial-quote">جربت جلسة السبا الآسيوي وكانت سماوية. ميلونز فعلاً واحدة من مليون ✨ — لا يقارن بأي مكان في عُمان.</p>
+        <div class="testimonial-author">— عميلة سبا آسيوي · مسقط</div>
+      </div>
+      <div class="testimonial-nav">
+        <button class="t-dot active" data-index="0"></button>
+        <button class="t-dot" data-index="1"></button>
+        <button class="t-dot" data-index="2"></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── BOOKING ──────────────────────────────── -->
+  <section id="booking">
+    <div class="booking-inner">
+      <div class="section-overline reveal">احجزي زيارتك</div>
+      <h2 class="section-title reveal reveal-delay-1">احجزي <em>موعد</em></h2>
+      <p class="booking-desc reveal reveal-delay-2">
+        أرسلي لنا رسالة عبر واتساب وفريقنا سيؤكد موعدك. فرعين متاحين — الموالح وشارع الوزارات (الراية).
+      </p>
+      <div class="booking-branches reveal reveal-delay-3">
+        <div class="booking-branch">
+          <a href="https://maps.google.com/?q=Melons+Nails+Spa+AlMawaleh+Muscat+Oman" target="_blank" class="booking-branch-name">📍 AlMawaleh</a>
+          <div class="booking-branch-phone"><a href="https://wa.me/96879319571">+968 79319571</a></div>
+          <div class="booking-branch-hours">يومياً · 10:00 ص – 8:00 م</div>
+          <div class="booking-branch-actions">
+            <a href="#" onclick="openBookingModal('almawaleh'); return false;" class="btn-branch-whatsapp">احجزي عبر واتساب ←</a>
+            <a href="https://maps.google.com/?q=Melons+Nails+Spa+AlMawaleh+Muscat+Oman" target="_blank" class="btn-branch-direction">الاتجاهات ←</a>
+          </div>
+        </div>
+        <div class="booking-branch">
+          <a href="https://maps.google.com/?q=Melons+Nails+Spa+Ministry+Street+ARaya+Muscat+Oman" target="_blank" class="booking-branch-name">📍 شارع الوزارات (الراية)</a>
+          <div class="booking-branch-phone"><a href="https://wa.me/96872228340">+968 72228340</a></div>
+          <div class="booking-branch-hours">يومياً · 10:00 ص – 8:00 م</div>
+          <div class="booking-branch-actions">
+            <a href="#" onclick="openBookingModal('ministry'); return false;" class="btn-branch-whatsapp">احجزي عبر واتساب ←</a>
+            <a href="https://maps.google.com/?q=Melons+Nails+Spa+Ministry+Street+ARaya+Muscat+Oman" target="_blank" class="btn-branch-direction">الاتجاهات ←</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ───────────────────────────────── -->
+  <footer>
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">Melons</div>
+        <p class="footer-tagline">أظافر، شعر وعناية بالبشرة في مسقط، عُمان. لأنكِ واحدة من مليون ✨ — فرعين، شغف واحد للجمال.</p>
+
+
+      </div>
+      <div>
+        <div class="footer-col-title">الخدمات</div>
+        <ul class="footer-links">
+          <li><a href="#services">مانيكير جل</a></li>
+          <li><a href="#services">فن الأظافر وأكريليك</a></li>
+          <li><a href="#services">شعر وتصفيف</a></li>
+          <li><a href="#services">عناية بالبشرة</a></li>
+          <li><a href="#services">سبا آسيوي</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">تنقل</div>
+        <ul class="footer-links">
+          <li><a href="#about">من نحن</a></li>
+          <li><a href="#gallery">معرض</a></li>
+          <li><a href="#reviews">آراء</a></li>
+          <li><a href="#" onclick="openBookingModal(); return false;">احجزي الآن</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">تواصل</div>
+        <div class="footer-contact-item"><a href="https://maps.google.com/?q=Melons+Nails+Spa+AlMawaleh+Muscat+Oman" target="_blank">📍 الموالح</a><br><a href="https://wa.me/96879319571">+968 79319571</a></div>
+        <div class="footer-contact-item"><a href="https://maps.google.com/?q=Melons+Nails+Spa+Ministry+Street+ARaya+Muscat+Oman" target="_blank">📍 شارع الوزارات (الراية)</a><br><a href="https://wa.me/96872228340">+968 72228340</a></div>
+        <div class="footer-contact-item">🕙 يومياً: 10:00 ص – 8:00 م</div>
+        <div class="footer-contact-item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="vertical-align:-2px;margin-right:4px"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg><a href="https://instagram.com/melons_nailspa" target="_blank">@melons_nailspa</a> · 32.9K</div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 <span>Melons®</span> · أظافر، شعر وعناية بالبشرة · مسقط، عُمان</div>
+      <div class="footer-copy">Powered by <span>Land Of Fire SPC</span></div>
+      <div class="footer-copy">لأنكِ <span>واحدة من مليون</span> ✨</div>
+    </div>
+  </footer>
+
+  <!-- ── BOOKING MODAL ────────────────────────── -->
+  <div id="bookingModal" class="booking-modal">
+    <div class="booking-modal-overlay"></div>
+    <div class="booking-modal-content">
+      <button class="booking-modal-close" onclick="closeBookingModal()">&times;</button>
+      <div class="booking-modal-header">
+        <div class="booking-modal-overline">احجزي زيارتك</div>
+        <h3 class="booking-modal-title">احجزي <em>موعد</em></h3>
+        <p class="booking-modal-subtitle">املئي البيانات أدناه وسنؤكد موعدك عبر واتساب.</p>
+      </div>
+      <form id="bookingForm" class="booking-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="bookName">الاسم الكامل</label>
+            <input type="text" id="bookName" placeholder="اسمك" required>
+          </div>
+          <div class="form-group">
+            <label for="bookPhone">رقم الهاتف</label>
+            <input type="tel" id="bookPhone" placeholder="+968 ..." required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="bookBranch">الفرع</label>
+            <select id="bookBranch" required>
+              <option value="" disabled selected>اختاري الفرع</option>
+              <option value="almawaleh">📍 الموالح</option>
+              <option value="ministry">📍 شارع الوزارات (الراية)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="bookService">الخدمة</label>
+            <select id="bookService" required>
+              <option value="" disabled selected>اختاري الخدمة</option>
+              <option value="Gel Manicure">مانيكير جل</option>
+              <option value="Nail Art">فن الأظافر</option>
+              <option value="Acrylic Extensions">تركيبات أكريليك</option>
+              <option value="Hair & Styling">شعر وتصفيف</option>
+              <option value="Facials">عناية بالبشرة</option>
+              <option value="Asian Spa">سبا آسيوي</option>
+              <option value="Other">أخرى</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row" id="specialistRow" style="display: none;">
+          <div class="form-group" style="grid-column: 1 / -1;">
+            <label for="bookSpecialist">المختصة المفضلة <span class="optional">(اختياري)</span></label>
+            <select id="bookSpecialist">
+              <option value="" selected>بدون تفضيل</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="bookDate">التاريخ المفضل</label>
+            <input type="date" id="bookDate" required>
+          </div>
+          <div class="form-group">
+            <label for="bookTime">الوقت المفضل</label>
+            <select id="bookTime" required>
+              <option value="" disabled selected>اختاري الوقت</option>
+              <option value="10:00 AM">10:00 AM</option>
+              <option value="11:00 AM">11:00 AM</option>
+              <option value="12:00 PM">12:00 PM</option>
+              <option value="01:00 PM">01:00 PM</option>
+              <option value="02:00 PM">02:00 PM</option>
+              <option value="03:00 PM">03:00 PM</option>
+              <option value="04:00 PM">04:00 PM</option>
+              <option value="05:00 PM">05:00 PM</option>
+              <option value="06:00 PM">06:00 PM</option>
+              <option value="07:00 PM">07:00 PM</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group form-group-full">
+          <label for="bookNotes">ملاحظات إضافية <span class="optional">(اختياري)</span></label>
+          <textarea id="bookNotes" rows="3" placeholder="أي طلبات أو تفضيلات خاصة..."></textarea>
+        </div>
+        <button type="submit" class="booking-form-submit">أرسلي عبر واتساب ←</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+</body>
+
+</html>
