@@ -26,6 +26,7 @@ window.scrollTo(0, 0);
   const navbar      = document.getElementById('navbar');
   const infoLeft    = document.querySelector('.hero-info-left');
   const infoRight   = document.querySelector('.hero-info-right');
+  const infoBottom  = document.querySelector('.hero-info-bottom');
   const heroScroll  = document.querySelector('.hero-scroll');
   const ctx         = heroCanvas.getContext('2d');
 
@@ -108,6 +109,7 @@ window.scrollTo(0, 0);
     // Info blocks slide in (CSS transition-delay handles staggering)
     infoLeft.classList.add('visible');
     infoRight.classList.add('visible');
+    if (infoBottom) infoBottom.classList.add('visible');
     // Scroll indicator
     if (heroScroll) heroScroll.classList.add('visible');
   }

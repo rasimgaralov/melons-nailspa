@@ -455,6 +455,17 @@ img {
 /* ── SCROLL INDICATOR ──────────────────────── *//* Bottom stats — hidden on desktop, shown on mobile */
 .hero-info-bottom {
   display: none;
+  position: absolute;
+  z-index: 2;
+  transform: translateX(-120%);
+  opacity: 0;
+  transition: transform 1.6s cubic-bezier(0.16, 1, 0.3, 1) 0.6s,
+    opacity 1.4s ease 0.6s;
+}
+
+.hero-info-bottom.visible {
+  transform: translateX(0);
+  opacity: 1;
 }
 
 .hero-scroll {
